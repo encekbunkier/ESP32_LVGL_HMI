@@ -1,4 +1,4 @@
-#include "Arduino_GFX_Library.h"
+#include <Arduino_GFX_Library.h>
 #include "lvgl_ui.h"
 #include "meters_setup.h"
 #include "audioplayer.h"
