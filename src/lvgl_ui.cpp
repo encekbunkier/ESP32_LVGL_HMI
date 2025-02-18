@@ -1,4 +1,6 @@
 #include <Arduino_GFX_Library.h>
+#include <lvgl.h>
+#include <TFT_eSPI.h>
 #include "lvgl_ui.h"
 #include "meters_setup.h"
 #include "audioplayer.h"
@@ -95,7 +97,10 @@ void setupUI()
     touch_init();
 
     pinMode(TFT_BL, OUTPUT);
-    digitalWrite(TFT_BL, HIGH);
+    static lv_disp_draw_buf_t draw_buf;
+    static lv_color_t buf1[SCREEN_BUF_SIZE];
+    static lv_color_t buf2[SCREEN_BUF_SIZE];
+    lv_disp_draw_buf_init(&draw_buf, buf1, buf2, SCREEN_BUF_SIZE);
 
     lv_disp_draw_buf_init( &draw_buf, buf1, buf2, SCREEN_BUF_SIZE);
 
